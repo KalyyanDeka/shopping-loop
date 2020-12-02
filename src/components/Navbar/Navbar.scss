@@ -1,0 +1,62 @@
+@import "../../assests/scss/scss-variables";
+
+.bd-grid {
+	max-width: 1200px;
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+.l-header {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: var(--first-color);
+	color: var(--white-color);
+	z-index: var(--z-fixed);
+}
+
+.nav {
+	height: $header-height;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: bold;
+	@media screen and (max-width: 768px) {
+		display: none;
+	}
+
+	&__menu {
+		@media screen and (max-width: 768px) {
+			// top: $header-height;
+			left: -100%;
+			background-color: rgba(1, 10, 67, 0.8);
+			width: 80%;
+			height: 100vh;
+			margin: auto;
+			padding: 2rem;
+			z-index: var(--z-fixed);
+			transition: 0.5s;
+		}
+	}
+	&__list {
+		text-align: center;
+	}
+	&__item {
+		margin-bottom: 2rem;
+	}
+	&__link {
+		padding: 0.5rem;
+		color: var(--white-color);
+	}
+	&__logo {
+		color: var(--white-color);
+	}
+	&__toggle {
+		font-size: 2rem;
+		cursor: pointer;
+	}
+	&__icon-cart {
+		font-size: 1.3rem;
+		text-align: right;
+	}
+}

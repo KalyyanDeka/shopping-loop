@@ -1,0 +1,40 @@
+@import "../../assests/scss/scss-variables";
+
+.products {
+	margin: auto;
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, 250px);
+		grid-gap: 30px;
+		align-items: center;
+		justify-content: center;
+
+		@media (max-width: 600px) {
+			grid-template-columns: repeat(auto-fit, 330px);
+		}
+	}
+
+	.item {
+		padding: 15px;
+		color: var(--first-color);
+		// border: 1px solid var(--second-color);
+		transition: all 0.3s;
+
+		&__image {
+			height: 260px;
+			width: 280px;
+		}
+
+		&__heading {
+			color: var(--first-color);
+			width: 90%;
+
+			font-size: var(--smaller-font-size);
+			font-weight: bold;
+		}
+
+		&__price {
+			font-size: var(--normal-font-size);
+		}
+	}
+}
