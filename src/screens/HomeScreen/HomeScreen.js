@@ -8,11 +8,13 @@ import Navbar from "../../components/Navbar/Navbar";
 import Banner from "../../components/Banner/Banner";
 import ProductCards from "../../components/ProductCards/ProductCards";
 import Pagination from "../../components/Pagination/Pagination";
+import FilterComponent from "../../components/FilterComponent/FilterComponent";
 
 const HomeScreen = () => {
 	const dispatch = useDispatch();
 
 	const [currentPage, setCurrentPage] = useState(1);
+	const [filters, setFilters] = useState([]);
 
 	let productsPerPage = 8;
 
@@ -23,9 +25,33 @@ const HomeScreen = () => {
 		dispatch(listProducts());
 	}, [dispatch]);
 
-	// Get current posts
+	// Store product categories
+	let categories = [];
+	products.forEach((product) => {
+		categories.push(product.category);
+	});
+
+	let filterCategories = [...new Set(categories)];
+
+	const handleFilters = (categories) => {
+		setFilters(categories);
+	};
+
+	// filter products
+	const filteredProducts = products.filter((product) => {
+		if (filters.length === 0) {
+			return product;
+		} else if (filters.indexOf(product.category) !== -1) {
+			return product;
+		} else {
+			return null;
+		}
+	});
+
+	// Get current products
 	const indexOfLastProduct = currentPage * productsPerPage;
 	const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+
 	const currentProducts = products.slice(
 		indexOfFirstProduct,
 		indexOfLastProduct
@@ -44,13 +70,25 @@ const HomeScreen = () => {
 					Shop from our wide range of products!
 				</h3>
 
-				<ProductCards loading={loading} currentProducts={currentProducts} />
-				<Pagination
-					productsPerPage={productsPerPage}
-					totalProducts={products.length}
-					paginate={paginate}
-					currentPage={currentPage}
+				<FilterComponent
+					handleFilters={(categories) => handleFilters(categories)}
+					filterCategories={filterCategories}
 				/>
+				<ProductCards
+					loading={loading}
+					currentProducts={
+						filters.length === 0 ? currentProducts : filteredProducts
+					}
+				/>
+				{filters.length === 0 && (
+					<Pagination
+						productsPerPage={productsPerPage}
+						totalProducts={products.length}
+						paginate={paginate}
+						currentPage={currentPage}
+					/>
+				)}
+				{console.log(filters)}
 			</main>
 		</Fragment>
 	);

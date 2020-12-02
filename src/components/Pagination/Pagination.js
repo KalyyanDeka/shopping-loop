@@ -15,30 +15,29 @@ const Pagination = ({
 
 	return (
 		<div id="pagination" className="pagination">
-			<a
-				href="#pagination"
+			<button
 				className="pagination-item"
 				onClick={() => paginate(currentPage - 1)}
+				disabled={currentPage === 1}
 			>
-				&larr;prev
-			</a>
+				prev
+			</button>
 			{pageNumbers.slice(currentPage - 1, currentPage + 6).map((number) => (
-				<a
+				<button
 					key={number}
-					href="#pagination"
 					className={`pagination-item ${currentPage === number && "active"} `}
 					onClick={() => paginate(number)}
 				>
 					{number}
-				</a>
+				</button>
 			))}
-			<a
-				href="#pagination"
+			<button
 				className="pagination-item"
 				onClick={() => paginate(currentPage + 1)}
+				disabled={currentPage === totalProducts / productsPerPage}
 			>
-				next&rarr;
-			</a>
+				next
+			</button>
 		</div>
 	);
 };

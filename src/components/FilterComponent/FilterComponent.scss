@@ -1,0 +1,10 @@
+.filter {
+	max-width: 1000px;
+	margin: 0 auto 20px auto;
+
+	&__name {
+		margin-right: 10px;
+		margin-left: 5px;
+		color: var(--first-color);
+	}
+}

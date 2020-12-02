@@ -1,7 +1,7 @@
 @import "../../assests/scss/scss-variables";
 
 .products {
-	margin: auto;
+	margin: auto auto 40px auto;
 	&__container {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, 250px);
