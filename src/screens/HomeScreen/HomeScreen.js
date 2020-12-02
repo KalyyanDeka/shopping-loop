@@ -17,7 +17,7 @@ const HomeScreen = () => {
 	let productsPerPage = 8;
 
 	const productList = useSelector((state) => state.productList);
-	const { loading, error, products } = productList;
+	const { loading, products } = productList;
 
 	useEffect(() => {
 		dispatch(listProducts());
