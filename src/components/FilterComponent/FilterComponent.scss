@@ -6,10 +6,16 @@
     display: block;
     color: var(--white-color);
     padding: 13px 15px;
-    //  border-radius: 100px;
     margin-bottom: 20px;
     background-color: var(--first-color);
     text-transform: uppercase;
+
+    transition: all 0.3s;
+
+    &:hover {
+      color: var(--first-color);
+      background-color: var(--white-color);
+    }
   }
 
   &__name {
