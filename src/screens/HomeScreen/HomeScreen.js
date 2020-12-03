@@ -4,6 +4,7 @@ import "./HomeScreen.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../../store/actions/productActions";
 
+// components
 import Navbar from "../../components/Navbar/Navbar";
 import Banner from "../../components/Banner/Banner";
 import ProductCards from "../../components/ProductCards/ProductCards";
@@ -43,9 +44,7 @@ const HomeScreen = () => {
 			return product;
 		} else if (filters.indexOf(product.category) !== -1) {
 			return product;
-		} else {
-			return null;
-		}
+		} else return false;
 	});
 
 	// Get current products
@@ -80,6 +79,7 @@ const HomeScreen = () => {
 						filters.length === 0 ? currentProducts : filteredProducts
 					}
 				/>
+
 				{filters.length === 0 && (
 					<Pagination
 						productsPerPage={productsPerPage}
