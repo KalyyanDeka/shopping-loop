@@ -4,6 +4,7 @@ import "./FilterComponent.scss";
 
 const FilterComponents = ({ handleFilters, filterCategories }) => {
 	const [checked, setChecked] = useState([]);
+	const [showFilters, setShowFilters] = useState(false)
 
 	const handleToggle = (category) => {
 		const currentIndex = checked.indexOf(category);
@@ -34,10 +35,14 @@ const FilterComponents = ({ handleFilters, filterCategories }) => {
 			</Fragment>
 		));
 
+		const toggleFilters = () => {
+			setShowFilters(!showFilters)
+		}
+
 	return (
 		<div className="checkboxes">
-			<h4 className="checkboxes__heading">Apply filters &darr;</h4>{" "}
-			{renderCheckboxLists()}
+			<button  onClick={toggleFilters} className="checkboxes__button">Apply filters &darr;</button>{" "}
+			{showFilters && renderCheckboxLists()}
 		</div>
 	);
 };

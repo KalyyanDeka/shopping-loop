@@ -1,14 +1,19 @@
 .checkboxes {
-	max-width: 1000px;
-	margin: 0 auto 20px auto;
+  max-width: 1000px;
+  margin: 0 auto 20px auto;
 
-	&__heading {
-		color: var(--first-color);
-		text-transform: uppercase;
-	}
+  &__button {
+    display: block;
+    color: var(--white-color);
+    padding: 13px 15px;
+    //  border-radius: 100px;
+    margin-bottom: 20px;
+    background-color: var(--first-color);
+    text-transform: uppercase;
+  }
 
-	&__name {
-		margin-right: 15px;
-		color: var(--first-color);
-	}
+  &__name {
+    margin-right: 15px;
+    color: var(--first-color);
+  }
 }
