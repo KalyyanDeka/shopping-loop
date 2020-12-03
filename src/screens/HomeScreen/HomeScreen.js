@@ -27,12 +27,9 @@ const HomeScreen = () => {
 	}, [dispatch]);
 
 	// Store product categories
-	let categories = [];
-	products.forEach((product) => {
-		categories.push(product.category);
-	});
+	const categories = products.map((item) => item.category);
 
-	let filterCategories = [...new Set(categories)];
+	const filterCategories = [...new Set(categories)];
 
 	const handleFilters = (categories) => {
 		setFilters(categories);
@@ -40,7 +37,7 @@ const HomeScreen = () => {
 
 	// filter products
 	const filteredProducts = products.filter((product) => {
-		if (filters.length === 0) {
+		if (!filters.length) {
 			return product;
 		} else if (filters.indexOf(product.category) !== -1) {
 			return product;
@@ -75,12 +72,10 @@ const HomeScreen = () => {
 				/>
 				<ProductCards
 					loading={loading}
-					currentProducts={
-						filters.length === 0 ? currentProducts : filteredProducts
-					}
+					currentProducts={!filters.length ? currentProducts : filteredProducts}
 				/>
 
-				{filters.length === 0 && (
+				{!filters.length && (
 					<Pagination
 						productsPerPage={productsPerPage}
 						totalProducts={products.length}
@@ -88,7 +83,6 @@ const HomeScreen = () => {
 						currentPage={currentPage}
 					/>
 				)}
-				{console.log(filters)}
 			</main>
 		</Fragment>
 	);
