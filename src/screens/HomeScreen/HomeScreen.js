@@ -31,8 +31,8 @@ const HomeScreen = () => {
 
 	const filterCategories = [...new Set(categories)];
 
-	const handleFilters = (categories) => {
-		setFilters(categories);
+	const handleFilters = (category) => {
+		setFilters(category);
 	};
 
 	// filter products
@@ -67,7 +67,7 @@ const HomeScreen = () => {
 				</h3>
 
 				<FilterComponent
-					handleFilters={(categories) => handleFilters(categories)}
+					handleFilters={(category) => handleFilters(category)}
 					filterCategories={filterCategories}
 				/>
 				<ProductCards

@@ -9,17 +9,10 @@
     margin-bottom: 20px;
     background-color: var(--first-color);
     text-transform: uppercase;
-
-    transition: all 0.3s;
-
-    &:hover {
-      color: var(--first-color);
-      background-color: var(--white-color);
-    }
   }
 
   &__name {
-    margin-right: 15px;
+    margin: 0 15px 0 5px;
     color: var(--first-color);
   }
 }
